@@ -13,8 +13,13 @@ const ThemeSwitcher = ({ className }:ThemeSwitcherProps) => {
     const { theme, toggleTheme } = useTheme();
 
     return (
-        <Button onClick={toggleTheme} className={classNames(cls.ThemeSwitcher, {}, [className])}>
-            {theme === Theme.LIGHT ? <LightThemeIcon fill="yellow" /> : <DarkThemeIcon fill="yellow" />}
+        <Button
+            onClick={toggleTheme}
+            className={classNames(cls.ThemeSwitcher, {}, [className])}
+        >
+            {theme === Theme.LIGHT
+                ? <LightThemeIcon fill="yellow" />
+                : <DarkThemeIcon fill="yellow" />}
         </Button>
     );
 };
