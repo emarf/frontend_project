@@ -4,7 +4,7 @@ import { routeConfig } from 'shared/config/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
 
 const AppRouter: FC = () => (
-    <Suspense fallback={<div>Loader...</div>}>
+    <Suspense fallback="">
         <Routes>
             {Object.values(routeConfig).map(({ path, element }) => (
                 <Route
