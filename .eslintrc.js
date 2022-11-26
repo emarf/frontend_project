@@ -9,8 +9,6 @@ module.exports = {
         'airbnb',
         'plugin:i18next/recommended',
     ],
-    overrides: [
-    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -40,8 +38,7 @@ module.exports = {
         'react/require-default-props': [1, {
             functions: 'ignore',
         }],
-        'react/function-component-definition': [2,
-            { namedComponents: 'arrow-function' }],
+        'react/function-component-definition': 'off',
         'react/jsx-props-no-spreading': 'warn',
         'no-shadow': 'off',
         'import/no-extraneous-dependencies': 'off',
