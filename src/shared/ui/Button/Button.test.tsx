@@ -9,7 +9,7 @@ describe('classNames', () => {
 
     test('check classnames and default clear class', () => {
         render(<Button className="red">Test</Button>);
-        expect(screen.getByText('Test')).toHaveClass('red clear');
+        expect(screen.getByText('Test')).toHaveClass('red primary');
         screen.debug();
     });
 });
