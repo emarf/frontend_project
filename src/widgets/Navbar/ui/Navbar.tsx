@@ -11,10 +11,10 @@ const Navbar = ({ className }:NavbarProps) => {
     const { t } = useTranslation('navigation');
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
-            <div className={cls.links}>
+            {/* <div className={cls.links}>
                 <AppLink theme={AppLinkTheme.SECONDARY} to="/">{t('Главная')}</AppLink>
                 <AppLink theme={AppLinkTheme.SECONDARY} to="/about">{t('О нас')}</AppLink>
-            </div>
+            </div> */}
         </div>
     );
 };
