@@ -7,6 +7,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import HomeIcon from 'shared/assets/svg/home-icon.svg';
 import InfoIcon from 'shared/assets/svg/info-icon.svg';
+import ArrowIcon from 'shared/assets/svg/arrow-icon.svg';
 import { RouterPath } from 'shared/config/routeConfig';
 import cls from './Sidebar.module.scss';
 
@@ -64,7 +65,10 @@ const Sidebar = ({ className }:SidebarProps) => {
                     className={cls.collapseBtn}
                     size={ButtonSize.L}
                 >
-                    {collapsed ? '<' : `> ${t('Свернуть сайдбар')}`}
+                    <div>
+                        <ArrowIcon />
+                    </div>
+                    <p>{t('Свернуть сайдбар')}</p>
                 </Button>
             </div>
 

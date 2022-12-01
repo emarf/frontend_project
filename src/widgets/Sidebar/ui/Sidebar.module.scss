@@ -46,9 +46,27 @@
 .collapseBtn {
   display: flex;
   width: 100%;
-  align-self: flex-end;
-  justify-self: flex-end;
+  align-items: center;
+  justify-content: center;
   padding: 15px;
+  gap: 10px;
+
+  & div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--inverted-primary-color);
+    }
+  }
+
+  & p {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .switchers {
@@ -57,15 +75,12 @@
   justify-content: center;
   width: 100%;
   gap: 10px;
+  flex-wrap: wrap;
+  opacity: 0.3s width;
 }
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
-
-  .switchers {
-    flex-direction: column;
-    transition: 0.3s width;
-  }
 
   .items {
     align-items: center;
@@ -76,5 +91,20 @@
     opacity: 0;
     width: 0;
     transition: 0.3s opacity;
+  }
+
+  .collapseBtn {
+    & div {
+      transform: rotate(180deg);
+      transition: 0.2s transform;
+    }
+
+    & p {
+      transition: 0.2s opacity;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 }
