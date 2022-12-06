@@ -8,7 +8,7 @@ const MainPage = ({ className }:MainPageProps) => {
     const { t } = useTranslation('main');
 
     return (
-        <div className={`${className}`}>
+        <div className={`${className || ''}`}>
             {t('Главная страница')}
         </div>
     );
