@@ -1,3 +1,4 @@
+import { Counter } from 'entities/Counter';
 import { useTranslation } from 'react-i18next';
 
 interface MainPageProps {
@@ -10,6 +11,7 @@ const MainPage = ({ className }:MainPageProps) => {
     return (
         <div className={`${className || ''}`}>
             {t('Главная страница')}
+            <Counter />
         </div>
     );
 };
