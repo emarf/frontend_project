@@ -254,3 +254,25 @@ Square.decorators = [
         </div>
     ),
 ];
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: '<',
+    theme: ButtonTheme.OUTLINE,
+    disabled: true,
+};
+Disabled.decorators = [
+    () => (
+        <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '20px',
+            padding: '20px',
+        }}
+        >
+            <Button {...Disabled.args} size={ButtonSize.M} />
+            <Button {...Disabled.args} size={ButtonSize.L} />
+            <Button {...Disabled.args} size={ButtonSize.XL} />
+        </div>
+    ),
+];

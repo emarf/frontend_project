@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { LoginModal } from 'features/AuthByUsername';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
-import Modal from 'shared/ui/Modal/Modal';
+import { getUserAuthData, userActions } from '../../../entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -12,14 +14,33 @@ interface NavbarProps {
 const Navbar = ({ className }:NavbarProps) => {
     const { t } = useTranslation('navigation');
     const [isOpenAuth, setOpenAuth] = useState<boolean>(false);
+    const authData = useSelector(getUserAuthData);
+    const dispatch = useDispatch();
 
-    const handleOpenAuthModal = () => {
+    const handleOpenAuthModal = useCallback(() => {
         setOpenAuth(true);
+    }, []);
+
+    const handleCloseAuthModal = useCallback(() => {
+        setOpenAuth(false);
+    }, []);
+
+    const handleLogout = () => {
+        dispatch(userActions.logout());
     };
 
-    const handleCloseAuthModal = () => {
-        setOpenAuth(false);
-    };
+    if (authData) {
+        return (
+            <div className={classNames(cls.Navbar, {}, [className])}>
+                <Button
+                    onClick={handleLogout}
+                    theme={ButtonTheme.CLEAR_INVERTED}
+                >
+                    {t('Выйти')}
+                </Button>
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
@@ -29,12 +50,7 @@ const Navbar = ({ className }:NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <Modal isModalOpen={isOpenAuth} onClose={handleCloseAuthModal}>
-                {t(`Lorem ipsum dolor sit amet
-                consectetur, adipisicing elit. Maxime autem eveniet laudantium delectus,
-                modi illum placeat beatae, ut voluptatibus in, distinctio cumque deserunt
-                iste quod officia ipsam laborum ipsa repellendus.`)}
-            </Modal>
+            <LoginModal isOpen={isOpenAuth} onClose={handleCloseAuthModal} />
         </div>
     );
 };

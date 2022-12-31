@@ -1,4 +1,3 @@
-import { Counter } from 'entities/Counter';
 import { useTranslation } from 'react-i18next';
 
 interface AboutPageProps {
@@ -11,7 +10,6 @@ const AboutPage = ({ className }: AboutPageProps) => {
     return (
         <div className={`${className}`}>
             {t('О сайте')}
-            <Counter />
         </div>
     );
 };
